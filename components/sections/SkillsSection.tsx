@@ -3,6 +3,154 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
+    FaReact,
+    FaNodeJs,
+    FaPython,
+    FaDocker,
+    FaGitAlt,
+    FaGithub,
+    FaFigma,
+    FaStripe,
+    FaPaypal,
+    FaHtml5,
+    FaCss3Alt,
+    FaJs,
+    FaAws,
+    FaLinux,
+    FaAndroid,
+    FaApple,
+    FaWindows,
+} from "react-icons/fa";
+import {
+    SiNextdotjs,
+    SiTypescript,
+    SiTailwindcss,
+    SiMongodb,
+    SiPostgresql,
+    SiMysql,
+    SiRedis,
+    SiPrisma,
+    SiSupabase,
+    SiGraphql,
+    SiNestjs,
+    SiExpress,
+    SiElectron,
+    SiExpo,
+    SiSocketdotio,
+    SiOpenai,
+    SiTensorflow,
+    SiMapbox,
+    SiPuppeteer,
+    SiElasticsearch,
+    SiVercel,
+    SiNetlify,
+    SiStorybook,
+    SiThreedotjs,
+    SiFramer,
+    SiSqlite,
+    SiTrpc,
+    SiJsonwebtokens,
+    SiLangchain,
+    SiWhatsapp,
+} from "react-icons/si";
+import {
+    TbBrandReactNative,
+    TbBrandThreejs,
+    TbBrandFramer
+} from "react-icons/tb";
+import {
+    BiLogoTypescript
+} from "react-icons/bi";
+import {
+    BsRobot,
+    BsKanban,
+    BsGlobe
+} from "react-icons/bs";
+import {
+    IoLogoJavascript,
+    IoLogoNodejs,
+    IoLogoPython,
+    IoLogoDocker
+} from "react-icons/io5";
+
+import { SectionWrapper, SectionHeading } from "../SectionWrapper";
+import { skillCategories, type SkillCategory } from "@/lib/data";
+import { cn } from "@/lib/utils";
+
+// Map icon names to actual components
+const iconComponents: Record<string, React.ComponentType<{ className?: string }>> = {
+    // Frontend
+    Nextjs: SiNextdotjs,
+    React: FaReact,
+    TypeScript: SiTypescript,
+    Tailwind: SiTailwindcss,
+    FramerMotion: TbBrandFramer,
+    Threejs: TbBrandThreejs,
+    Shadcn: BsKanban, // Placeholder/Generic for UI lib if specific icon unavailable
+    HeadlessUI: BsKanban,
+
+    // Backend
+    Nodejs: FaNodeJs,
+    NestJS: SiNestjs,
+    Express: SiExpress,
+    GraphQL: SiGraphql,
+    REST: BsGlobe,
+    tRPC: SiTrpc,
+    JWT: SiJsonwebtokens,
+    Stripe: FaStripe,
+
+    // Mobile
+    ReactNative: TbBrandReactNative,
+    Expo: SiExpo,
+    PushNotifications: BsRobot, // Generic
+    RealTime: SiSocketdotio,
+    Maps: SiMapbox,
+    Offline: BsKanban, // Generic
+
+    // Desktop
+    Electron: SiElectron,
+    SQLite: SiSqlite,
+
+    // Database
+    PostgreSQL: SiPostgresql,
+    MongoDB: SiMongodb,
+    Prisma: SiPrisma,
+    Supabase: SiSupabase,
+    Redis: SiRedis,
+    ElasticSearch: SiElasticsearch,
+    MySQL: SiMysql,
+
+    // AI
+    OpenAI: SiOpenai,
+    LangChain: SiLangchain,
+    Automation: BsRobot,
+    Bots: BsRobot,
+    Dashboards: BsKanban,
+
+    // DevOps
+    Git: FaGitAlt,
+    CICD: FaGithub, // Using GitHub icon for CI/CD context generally
+    Docker: FaDocker,
+    Vercel: SiVercel,
+    Netlify: SiNetlify,
+    Figma: FaFigma,
+    Storybook: SiStorybook,
+
+    // Fallback
+    Globe: BsGlobe,
+};
+
+import {
+    Monitor,
+    Server,
+    Smartphone,
+    Database,
+    Brain,
+    Wrench,
+    Globe
+} from "lucide-react";
+
+const categoryIconComponents: Record<string, React.ComponentType<{ className?: string }>> = {
     Monitor,
     Server,
     Smartphone,
@@ -10,53 +158,15 @@ import {
     Brain,
     Wrench,
     Globe,
-    Layers,
-    Code,
-    Palette,
-    Sparkles,
-    Box,
-    LayoutDashboard,
-    Hexagon,
-    Zap,
-    GitBranch,
-    Link,
-    ArrowLeftRight,
-    Shield,
-    CreditCard,
-    Rocket,
-    Bell,
-    MessageCircle,
-    Map,
-    WifiOff,
-    Leaf,
-    Cloud,
-    Search,
-    Workflow,
-    Mail,
-    MessageSquare,
-    BarChart3,
-    RefreshCw,
-    Container,
-    Triangle,
-    Figma,
-    BookOpen,
-    Component,
-} from "lucide-react";
-import { SectionWrapper, SectionHeading } from "../SectionWrapper";
-import { skillCategories, type SkillCategory } from "@/lib/data";
-import { cn } from "@/lib/utils";
-
-// Map icon names to actual components
-const iconComponents: Record<string, React.ComponentType<{ className?: string }>> = {
-    Monitor, Server, Smartphone, Database, Brain, Wrench, Globe, Layers, Code,
-    Palette, Sparkles, Box, LayoutDashboard, Hexagon, Zap, GitBranch, Link,
-    ArrowLeftRight, Shield, CreditCard, Rocket, Bell, MessageCircle, Map,
-    WifiOff, Leaf, Cloud, Search, Workflow, Mail, MessageSquare, BarChart3,
-    RefreshCw, Container, Triangle, Figma, BookOpen, Component,
 };
 
-function LucideIcon({ name, className }: { name: string; className?: string }) {
-    const Icon = iconComponents[name] || Globe;
+function CategoryIcon({ name, className }: { name: string; className?: string }) {
+    const Icon = categoryIconComponents[name] || Globe;
+    return <Icon className={className} />;
+}
+
+function TechIcon({ name, className }: { name: string; className?: string }) {
+    const Icon = iconComponents[name] || BsGlobe;
     return <Icon className={className} />;
 }
 
@@ -86,7 +196,7 @@ export function SkillsSection() {
                                 : "border border-white/10 bg-white/50 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-white/80 dark:hover:bg-white/10"
                         )}
                     >
-                        <LucideIcon name={cat.icon} className="h-4 w-4" />
+                        <CategoryIcon name={cat.icon} className="h-4 w-4" />
                         {cat.title}
                     </motion.button>
                 ))}
@@ -148,7 +258,7 @@ function SkillCard({
                         category.color
                     )}
                 >
-                    <LucideIcon name={skill.icon} className="h-5 w-5" />
+                    <TechIcon name={skill.icon} className="h-5 w-5" />
                 </div>
                 <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
                     {skill.name}

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { Logo } from "./Logo";
 import { navLinks } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -29,14 +30,7 @@ export function Header() {
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
                 {/* Logo */}
-                <motion.a
-                    href="#home"
-                    className="text-xl font-bold bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                >
-                    SA.dev
-                </motion.a>
+                <Logo />
 
                 {/* Desktop Navigation */}
                 <ul className="hidden md:flex items-center gap-1">

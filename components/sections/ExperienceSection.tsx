@@ -2,16 +2,147 @@
 
 import { motion } from "framer-motion";
 import {
-    Briefcase,
-    Calendar,
-    MapPin,
-    Rocket,
-    TrendingUp,
-    Star,
-} from "lucide-react";
+    FaReact,
+    FaNodeJs,
+    FaPython,
+    FaDocker,
+    FaGitAlt,
+    FaGithub,
+    FaFigma,
+    FaStripe,
+    FaPaypal,
+    FaHtml5,
+    FaCss3Alt,
+    FaJs,
+    FaAws,
+    FaLinux,
+    FaAndroid,
+    FaApple,
+    FaWindows,
+} from "react-icons/fa";
+import {
+    SiNextdotjs,
+    SiTypescript,
+    SiTailwindcss,
+    SiMongodb,
+    SiPostgresql,
+    SiMysql,
+    SiRedis,
+    SiPrisma,
+    SiSupabase,
+    SiGraphql,
+    SiNestjs,
+    SiExpress,
+    SiElectron,
+    SiExpo,
+    SiSocketdotio,
+    SiOpenai,
+    SiTensorflow,
+    SiMapbox,
+    SiPuppeteer,
+    SiElasticsearch,
+    SiVercel,
+    SiNetlify,
+    SiStorybook,
+    SiThreedotjs,
+    SiFramer,
+    SiSqlite,
+    SiTrpc,
+    SiJsonwebtokens,
+    SiLangchain,
+    SiWhatsapp,
+} from "react-icons/si";
+import {
+    TbBrandReactNative,
+    TbBrandThreejs,
+    TbBrandFramer
+} from "react-icons/tb";
+import {
+    BiLogoTypescript
+} from "react-icons/bi";
+import {
+    BsRobot,
+    BsKanban,
+    BsGlobe
+} from "react-icons/bs";
+import {
+    IoLogoJavascript,
+    IoLogoNodejs,
+    IoLogoPython,
+    IoLogoDocker
+} from "react-icons/io5";
 import { SectionWrapper, SectionHeading } from "../SectionWrapper";
 import { experiences, type Experience } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { Briefcase, Calendar, MapPin, Rocket, Star, TrendingUp } from "lucide-react";
+
+// Map icon names to actual components
+const iconComponents: Record<string, React.ComponentType<{ className?: string }>> = {
+    // Frontend
+    Nextjs: SiNextdotjs,
+    React: FaReact,
+    TypeScript: SiTypescript,
+    Tailwind: SiTailwindcss,
+    FramerMotion: TbBrandFramer,
+    Threejs: TbBrandThreejs,
+    Shadcn: BsKanban,
+    HeadlessUI: BsKanban,
+
+    // Backend
+    Nodejs: FaNodeJs,
+    NestJS: SiNestjs,
+    Express: SiExpress,
+    GraphQL: SiGraphql,
+    REST: BsGlobe,
+    tRPC: SiTrpc,
+    JWT: SiJsonwebtokens,
+    Stripe: FaStripe,
+
+    // Mobile
+    ReactNative: TbBrandReactNative,
+    Expo: SiExpo,
+    PushNotifications: BsRobot,
+    RealTime: SiSocketdotio,
+    Maps: SiMapbox,
+    Offline: BsKanban,
+
+    // Desktop
+    Electron: SiElectron,
+    SQLite: SiSqlite,
+
+    // Database
+    PostgreSQL: SiPostgresql,
+    MongoDB: SiMongodb,
+    Prisma: SiPrisma,
+    Supabase: SiSupabase,
+    Redis: SiRedis,
+    ElasticSearch: SiElasticsearch,
+    MySQL: SiMysql,
+
+    // AI
+    OpenAI: SiOpenai,
+    LangChain: SiLangchain,
+    Automation: BsRobot,
+    Bots: BsRobot,
+    Dashboards: BsKanban,
+
+    // DevOps
+    Git: FaGitAlt,
+    CICD: FaGithub,
+    Docker: FaDocker,
+    Vercel: SiVercel,
+    Netlify: SiNetlify,
+    Figma: FaFigma,
+    Storybook: SiStorybook,
+
+    // Fallback
+    Globe: BsGlobe,
+};
+
+function TechIcon({ name, className }: { name: string; className?: string }) {
+    const Icon = iconComponents[name] || BsGlobe;
+    return <Icon className={className} />;
+}
 
 /** Experience section with interactive timeline and animated cards */
 export function ExperienceSection() {
@@ -199,8 +330,10 @@ function ExperienceCard({
                     {experience.techStack.map((tech) => (
                         <span
                             key={tech}
-                            className="rounded-full bg-gray-100 dark:bg-white/10 px-2.5 py-0.5 text-xs font-medium text-gray-600 dark:text-gray-300 transition-colors hover:bg-gray-200 dark:hover:bg-white/20"
+                            className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 dark:bg-white/10 px-2.5 py-1 text-xs font-medium text-gray-600 dark:text-gray-300 transition-colors hover:bg-gray-200 dark:hover:bg-white/20"
                         >
+                            {/* Try to map tech name to icon URL/Key if possible, otherwise just text */}
+                            <TechIcon name={tech.replace(/\s+/g, '')} className="h-3 w-3" />
                             {tech}
                         </span>
                     ))}

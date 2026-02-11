@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import { navLinks, socialLinks } from "@/lib/data";
 import { SocialIcon } from "./SocialIcon";
+import { Logo } from "./Logo";
 
 /** Footer with copyright, navigation, and social links */
 export function Footer() {
@@ -18,12 +19,7 @@ export function Footer() {
                 <div className="grid gap-8 md:grid-cols-3">
                     {/* Brand */}
                     <div>
-                        <a
-                            href="#home"
-                            className="text-xl font-bold bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent"
-                        >
-                            SA.dev
-                        </a>
+                        <Logo />
                         <p className="mt-3 text-sm text-gray-500 dark:text-gray-400 max-w-xs">
                             Building modern, scalable applications with cutting-edge
                             technologies and clean architecture.
