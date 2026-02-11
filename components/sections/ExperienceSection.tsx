@@ -139,8 +139,24 @@ const iconComponents: Record<string, React.ComponentType<{ className?: string }>
     Globe: BsGlobe,
 };
 
+// Map tech stack names to icons (normalization helper)
+function getTechIcon(name: string) {
+    const normalized = name.replace(/\s+/g, "").replace(/\./g, "").toLowerCase();
+
+    // Lookup by normalized keys if needed, or just direct match with fallback
+    // For now we try to match the keys in iconComponents
+    // We can extend iconComponents to have lowercase keys or just do a simple lookup
+
+    const key = Object.keys(iconComponents).find(k =>
+        k.toLowerCase() === normalized ||
+        k.toLowerCase() === name.toLowerCase()
+    );
+
+    return key ? iconComponents[key] : BsGlobe;
+}
+
 function TechIcon({ name, className }: { name: string; className?: string }) {
-    const Icon = iconComponents[name] || BsGlobe;
+    const Icon = getTechIcon(name);
     return <Icon className={className} />;
 }
 
