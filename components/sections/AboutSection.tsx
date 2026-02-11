@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { User, Briefcase, Code, Users } from "lucide-react";
 import { SectionWrapper, SectionHeading } from "../SectionWrapper";
 import { aboutData } from "@/lib/data";
@@ -23,6 +24,7 @@ export function AboutSection() {
 
             <div className="grid gap-12 lg:grid-cols-2 items-center">
                 {/* Avatar / Decorative element */}
+                {/* Avatar / Decorative element */}
                 <motion.div
                     initial={{ opacity: 0, x: -40 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -31,34 +33,27 @@ export function AboutSection() {
                     className="relative mx-auto lg:mx-0"
                 >
                     {/* 3D-style avatar placeholder */}
-                    <div className="relative h-80 w-80 rounded-3xl overflow-hidden">
-                        {/* Gradient background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-violet-500 to-purple-600" />
-                        {/* Glass overlay */}
-                        <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
-                        {/* Decorative circles */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="relative">
-                                <motion.div
-                                    className="h-40 w-40 rounded-full border-4 border-white/20"
-                                    animate={{ rotate: 360 }}
-                                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    <div className="relative h-80 w-80 rounded-3xl overflow-hidden group">
+                        {/* Gradient background/border effect */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-violet-500 to-purple-600 opacity-20 group-hover:opacity-30 transition-opacity" />
+
+                        {/* The Logo Image */}
+                        <div className="absolute inset-[3px] rounded-[22px] overflow-hidden bg-white/5 backdrop-blur-sm z-10 flex items-center justify-center">
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src="/LogoSalah.png"
+                                    alt="Salah Eddine Arbani"
+                                    fill
+                                    className="object-cover p-2 hover:scale-110 transition-transform duration-700"
                                 />
-                                <motion.div
-                                    className="absolute inset-4 rounded-full border-2 border-white/30"
-                                    animate={{ rotate: -360 }}
-                                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                                />
-                                <div className="absolute inset-8 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center">
-                                    <span className="text-4xl font-bold text-white">SA</span>
-                                </div>
                             </div>
                         </div>
-                        {/* Floating dots */}
+
+                        {/* Floating dots - kept for animation */}
                         {[...Array(6)].map((_, i) => (
                             <motion.div
                                 key={i}
-                                className="absolute h-2 w-2 rounded-full bg-white/30"
+                                className="absolute h-2 w-2 rounded-full bg-blue-400/50 z-20 pointer-events-none"
                                 style={{
                                     top: `${20 + Math.random() * 60}%`,
                                     left: `${20 + Math.random() * 60}%`,
@@ -76,7 +71,7 @@ export function AboutSection() {
                         ))}
                     </div>
                     {/* Glow effect */}
-                    <div className="absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 blur-2xl" />
+                    <div className="absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 blur-2xl opacity-50" />
                 </motion.div>
 
                 {/* Bio content */}
