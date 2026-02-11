@@ -25,6 +25,7 @@ export interface Project {
     githubUrl?: string;
     image: string; // placeholder gradient
     gradient: string;
+    isPrivate?: boolean;
 }
 
 export interface Stat {
@@ -262,6 +263,63 @@ export const projects: Project[] = [
         githubUrl: "#",
         image: "/projects/car-rental.png",
         gradient: "from-cyan-500 to-blue-400",
+    },
+    {
+        id: "enterprise-erp",
+        title: "Enterprise ERP System",
+        description:
+            "A massive-scale Enterprise Resource Planning system for a multi-national logistics company. Handled complex supply chain management, real-time inventory tracking, and automated financial reporting for over 500+ users.",
+        role: "Senior Architect",
+        category: "Web",
+        techStack: [
+            "Next.js",
+            "NestJS",
+            "PostgreSQL",
+            "Redis",
+            "Docker",
+            "Kubernetes",
+        ],
+        image: "/projects/erp-system.png",
+        gradient: "from-slate-700 to-slate-500",
+        isPrivate: true,
+    },
+    {
+        id: "fintech-banking",
+        title: "Neo-Bank Core Banking Module",
+        description:
+            "Secure and high-frequency trading module for a fintech startup. Implemented banking-grade security, anti-fraud detection systems using AI, and real-time transaction processing with microservices architecture.",
+        role: "Backend Lead",
+        category: "Backend",
+        techStack: [
+            "Node.js",
+            "Kafka",
+            "gRPC",
+            "MongoDB",
+            "ElasticSearch",
+            "AWS",
+        ],
+        image: "/projects/fintech.png",
+        gradient: "from-indigo-900 to-blue-800",
+        isPrivate: true,
+    },
+    {
+        id: "healthcare-portal",
+        title: "AI Diagnostic Patient Portal",
+        description:
+            "HIPAA-compliant telemedicine platform connecting patients with specialists. Features AI-driven preliminary diagnosis, secure video consultations, and integrated electronic health records (EHR).",
+        role: "Full-Stack Lead",
+        category: "Web",
+        techStack: [
+            "React",
+            "Python",
+            "TensorFlow",
+            "WebRTC",
+            "FastAPI",
+            "PostgreSQL",
+        ],
+        image: "/projects/healthcare.png",
+        gradient: "from-teal-700 to-emerald-600",
+        isPrivate: true,
     },
 ];
 

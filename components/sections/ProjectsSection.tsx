@@ -2,16 +2,18 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, ChevronRight } from "lucide-react";
+import { ExternalLink, Github, ChevronRight, Lock } from "lucide-react";
 import { SectionWrapper, SectionHeading } from "../SectionWrapper";
-import { projects } from "@/lib/data";
+import { projects, type Project } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { ProjectDetailsModal } from "../ProjectDetailsModal";
 
 const categories = ["All", ...new Set(projects.map((p) => p.category))];
 
 /** Projects section with filterable, animated project cards */
 export function ProjectsSection() {
     const [activeFilter, setActiveFilter] = useState("All");
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
     const filtered =
         activeFilter === "All"
@@ -56,10 +58,21 @@ export function ProjectsSection() {
                     className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
                 >
                     {filtered.map((project, idx) => (
-                        <ProjectCard key={project.id} project={project} index={idx} />
+                        <ProjectCard
+                            key={project.id}
+                            project={project}
+                            index={idx}
+                            onSelect={() => !project.isPrivate && setSelectedProject(project)}
+                        />
                     ))}
                 </motion.div>
             </AnimatePresence>
+
+            {/* Details Modal */}
+            <ProjectDetailsModal
+                project={selectedProject}
+                onClose={() => setSelectedProject(null)}
+            />
         </SectionWrapper>
     );
 }
@@ -67,9 +80,11 @@ export function ProjectsSection() {
 function ProjectCard({
     project,
     index,
+    onSelect,
 }: {
-    project: (typeof projects)[number];
+    project: Project;
     index: number;
+    onSelect: () => void;
 }) {
     return (
         <motion.div
@@ -77,54 +92,62 @@ function ProjectCard({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1, duration: 0.4 }}
             whileHover={{ y: -8 }}
-            className="group relative rounded-3xl border border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md overflow-hidden transition-shadow hover:shadow-2xl hover:shadow-blue-500/10"
+            onClick={onSelect}
+            className={cn(
+                "group relative rounded-3xl border border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md overflow-hidden transition-shadow hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col h-full",
+                !project.isPrivate && "cursor-pointer"
+            )}
         >
             {/* Image / Gradient header */}
-            <div className={cn("relative h-48 bg-gradient-to-br", project.gradient)}>
+            <div className={cn("relative h-48 bg-gradient-to-br shrink-0", project.gradient)}>
                 {/* Decorative elements */}
                 <div className="absolute inset-0 bg-black/10" />
-                <div className="absolute bottom-4 left-4 right-4">
+                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
                     <span className="inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
                         {project.category}
                     </span>
-                </div>
-                {/* Hover overlay */}
-                <div className="absolute inset-0 flex items-center justify-center gap-3 bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
-                    {project.liveUrl && (
-                        <a
-                            href={project.liveUrl}
-                            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-transform hover:scale-110"
-                            aria-label="Live demo"
-                        >
-                            <ExternalLink className="h-4 w-4" />
-                        </a>
+                    {project.isPrivate && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-black/40 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm border border-white/10">
+                            <Lock className="h-3 w-3" /> Confidential
+                        </span>
                     )}
-                    {project.githubUrl && (
-                        <a
-                            href={project.githubUrl}
-                            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-transform hover:scale-110"
-                            aria-label="GitHub"
-                        >
-                            <Github className="h-4 w-4" />
-                        </a>
+                </div>
+
+                {/* Hover overlay - Only show interactive buttons if public AND not handled by card click */}
+                {/* Actually, let's keep direct links here for quick access, but card click opens modal */}
+                <div className="absolute inset-0 flex items-center justify-center gap-3 bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
+                    {project.isPrivate ? (
+                        <div className="flex flex-col items-center gap-2 text-white">
+                            <div className="rounded-full bg-white/10 p-3 backdrop-blur-sm">
+                                <Lock className="h-6 w-6" />
+                            </div>
+                            <span className="text-sm font-medium">NDA Protected</span>
+                        </div>
+                    ) : (
+                        <div className="flex flex-col items-center gap-3">
+                            <span className="rounded-full bg-blue-600/90 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm shadow-lg">
+                                View Details
+                            </span>
+                        </div>
                     )}
                 </div>
             </div>
 
             {/* Content */}
-            <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+            <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
                     {project.title}
+                    {project.isPrivate && <Lock className="h-4 w-4 text-gray-400" />}
                 </h3>
                 <p className="mt-1 text-xs text-blue-500 dark:text-blue-400 font-medium">
                     {project.role}
                 </p>
-                <p className="mt-3 text-sm text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-3">
+                <p className="mt-3 text-sm text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-3 mb-4">
                     {project.description}
                 </p>
 
                 {/* Tech stack badges */}
-                <div className="mt-4 flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5 mt-auto">
                     {project.techStack.map((tech) => (
                         <span
                             key={tech}
@@ -133,12 +156,6 @@ function ProjectCard({
                             {tech}
                         </span>
                     ))}
-                </div>
-
-                {/* View details link */}
-                <div className="mt-4 flex items-center text-sm font-medium text-blue-500 dark:text-blue-400 group/link cursor-pointer">
-                    View Details
-                    <ChevronRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
                 </div>
             </div>
         </motion.div>
