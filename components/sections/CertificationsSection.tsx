@@ -1,13 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Award, ExternalLink, Calendar, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Award, ExternalLink, Calendar, CheckCircle2, ShieldCheck, Plus } from "lucide-react";
 import Image from "next/image";
 import { SectionWrapper, SectionHeading } from "../SectionWrapper";
-import { certifications } from "@/lib/data";
+import { certifications, Certification } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { CertificationDetailsModal } from "../CertificationDetailsModal";
 
 export function CertificationsSection() {
+    const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
+
     return (
         <SectionWrapper id="certifications">
             <SectionHeading
@@ -24,7 +28,8 @@ export function CertificationsSection() {
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.05, duration: 0.5 }}
                         whileHover={{ y: -5 }}
-                        className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/50 dark:bg-white/5 p-6 backdrop-blur-md transition-all hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10"
+                        onClick={() => setSelectedCert(cert)}
+                        className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/50 dark:bg-white/5 p-6 backdrop-blur-md transition-all hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 cursor-pointer"
                     >
                         {/* Category Badge */}
                         <div className="absolute top-6 right-6 flex items-center gap-1.5 rounded-full bg-blue-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-500">
@@ -69,8 +74,8 @@ export function CertificationsSection() {
                                 {cert.issued}
                             </div>
                             <div className="flex items-center gap-1 text-emerald-500 font-medium">
-                                <ShieldCheck className="h-3.5 w-3.5" />
-                                Verified
+                                <Plus className="h-3.5 w-3.5 group-hover:rotate-90 transition-transform" />
+                                Details
                             </div>
                         </div>
 
@@ -95,6 +100,12 @@ export function CertificationsSection() {
                     Links to original certificates are available upon request.
                 </p>
             </motion.div>
+
+            {/* Modal */}
+            <CertificationDetailsModal
+                certification={selectedCert}
+                onClose={() => setSelectedCert(null)}
+            />
         </SectionWrapper>
     );
 }

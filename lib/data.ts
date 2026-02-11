@@ -533,7 +533,7 @@ export const certifications: Certification[] = [
         credentialId: "MT280Y99231H",
         skills: ["AWS", "Cloud Storage", "S3"],
         category: "Cloud",
-        image: "/certs/aws-s3.png",
+        image: "/certs/aws-s3.jfif",
     },
     {
         id: "azure-rest-api",
@@ -543,7 +543,7 @@ export const certifications: Certification[] = [
         credentialId: "LXLBLJKOCAVL",
         skills: ["Azure Functions", "Serverless Architecture", "Node.js", "REST APIs"],
         category: "Cloud",
-        image: "/certs/azure-api.png",
+        image: "/certs/azure-api.jfif",
     },
     {
         id: "react-native-meta",
@@ -553,7 +553,7 @@ export const certifications: Certification[] = [
         credentialId: "ICTTI61Y79D1",
         skills: ["React Native", "Mobile Development", "Cross-platform Apps"],
         category: "Mobile",
-        image: "/certs/react-native-meta.png",
+        image: "/certs/react-native-meta.jfif",
     },
     {
         id: "twitter-clone-nextjs",
@@ -563,7 +563,7 @@ export const certifications: Certification[] = [
         credentialId: "AFMT9NESHDHI",
         skills: ["Next.js", "TypeScript", "Full-Stack Development"],
         category: "Web",
-        image: "/certs/twitter-clone.png",
+        image: "/certs/twitter-clone.jfif",
     },
     {
         id: "javascript-meta",
@@ -573,7 +573,7 @@ export const certifications: Certification[] = [
         credentialId: "UD6WLFZO9V5H",
         skills: ["JavaScript", "OOP", "Web Development Fundamentals"],
         category: "Web",
-        image: "/certs/js-meta.png",
+        image: "/certs/js-meta.jfif",
     },
     {
         id: "frontend-meta",
@@ -583,7 +583,7 @@ export const certifications: Certification[] = [
         credentialId: "MVBG61E52DBU",
         skills: ["HTML", "CSS", "Responsive Design", "Web Foundations"],
         category: "Web",
-        image: "/certs/frontend-meta.png",
+        image: "/certs/frontend-meta.jfif",
     },
     {
         id: "wordpress-meta",
@@ -593,7 +593,7 @@ export const certifications: Certification[] = [
         credentialId: "RTYNOYHZLTEO",
         skills: ["WordPress", "Web Design", "CMS Development"],
         category: "Web",
-        image: "/certs/wordpress.png",
+        image: "/certs/wordpress.jfif",
     },
     {
         id: "figma-meta",
@@ -603,7 +603,7 @@ export const certifications: Certification[] = [
         credentialId: "4VSTT2JTTLS8",
         skills: ["Figma", "UI Components", "Design Systems", "UI/UX Workflow"],
         category: "Design",
-        image: "/certs/figma-meta.png",
+        image: "/certs/figma-meta.jfif",
     },
     {
         id: "english-career",
@@ -613,6 +613,6 @@ export const certifications: Certification[] = [
         credentialId: "P2WJOGJDZHLO",
         skills: ["Professional Communication", "Career Development", "Workplace English"],
         category: "English",
-        image: "/certs/english.png",
+        image: "/certs/english.jfif",
     },
 ];
