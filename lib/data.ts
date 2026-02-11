@@ -510,3 +510,109 @@ export const navLinks = [
     { label: "Overview", href: "#overview" },
     { label: "Contact", href: "#contact" },
 ];
+// ---------------------------------------------------------------------------
+// Certifications
+// ---------------------------------------------------------------------------
+export interface Certification {
+    id: string;
+    title: string;
+    provider: string;
+    issued: string;
+    credentialId: string;
+    skills: string[];
+    category: "Cloud" | "Mobile" | "Web" | "Design" | "English";
+    image: string; // Placeholder for image provided by user later
+}
+
+export const certifications: Certification[] = [
+    {
+        id: "aws-s3-basics",
+        title: "AWS S3 Basics",
+        provider: "Coursera Project Network",
+        issued: "July 2025",
+        credentialId: "MT280Y99231H",
+        skills: ["AWS", "Cloud Storage", "S3"],
+        category: "Cloud",
+        image: "/certs/aws-s3.png",
+    },
+    {
+        id: "azure-rest-api",
+        title: "Azure: Create a REST API using NodeJS Serverless Functions",
+        provider: "Coursera Project Network",
+        issued: "September 2024",
+        credentialId: "LXLBLJKOCAVL",
+        skills: ["Azure Functions", "Serverless Architecture", "Node.js", "REST APIs"],
+        category: "Cloud",
+        image: "/certs/azure-api.png",
+    },
+    {
+        id: "react-native-meta",
+        title: "React Native",
+        provider: "Meta (Coursera)",
+        issued: "September 2024",
+        credentialId: "ICTTI61Y79D1",
+        skills: ["React Native", "Mobile Development", "Cross-platform Apps"],
+        category: "Mobile",
+        image: "/certs/react-native-meta.png",
+    },
+    {
+        id: "twitter-clone-nextjs",
+        title: "Build a Full Stack Twitter Clone with Next.js",
+        provider: "Coursera Project Network",
+        issued: "August 2024",
+        credentialId: "AFMT9NESHDHI",
+        skills: ["Next.js", "TypeScript", "Full-Stack Development"],
+        category: "Web",
+        image: "/certs/twitter-clone.png",
+    },
+    {
+        id: "javascript-meta",
+        title: "Programming with JavaScript",
+        provider: "Meta (Coursera)",
+        issued: "August 2024",
+        credentialId: "UD6WLFZO9V5H",
+        skills: ["JavaScript", "OOP", "Web Development Fundamentals"],
+        category: "Web",
+        image: "/certs/js-meta.png",
+    },
+    {
+        id: "frontend-meta",
+        title: "Introduction to Front-End Development",
+        provider: "Meta (Coursera)",
+        issued: "August 2024",
+        credentialId: "MVBG61E52DBU",
+        skills: ["HTML", "CSS", "Responsive Design", "Web Foundations"],
+        category: "Web",
+        image: "/certs/frontend-meta.png",
+    },
+    {
+        id: "wordpress-meta",
+        title: "Build a Full Website using WordPress",
+        provider: "Coursera",
+        issued: "September 2024",
+        credentialId: "RTYNOYHZLTEO",
+        skills: ["WordPress", "Web Design", "CMS Development"],
+        category: "Web",
+        image: "/certs/wordpress.png",
+    },
+    {
+        id: "figma-meta",
+        title: "Work with Components in Figma",
+        provider: "Coursera",
+        issued: "September 2024",
+        credentialId: "4VSTT2JTTLS8",
+        skills: ["Figma", "UI Components", "Design Systems", "UI/UX Workflow"],
+        category: "Design",
+        image: "/certs/figma-meta.png",
+    },
+    {
+        id: "english-career",
+        title: "English for Career Development",
+        provider: "University of Pennsylvania Carey Law School (Coursera)",
+        issued: "September 2024",
+        credentialId: "P2WJOGJDZHLO",
+        skills: ["Professional Communication", "Career Development", "Workplace English"],
+        category: "English",
+        image: "/certs/english.png",
+    },
+];

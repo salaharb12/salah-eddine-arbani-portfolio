@@ -22,7 +22,8 @@ import {
     aboutData,
     experiences,
     skillCategories,
-    socialLinks
+    socialLinks,
+    certifications
 } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -188,19 +189,55 @@ export default function ResumePage() {
                         </div>
                     </section>
 
-                    {/* Professional Education Placeholder */}
+                    {/* Education & Certifications */}
                     <section className="break-inside-avoid">
                         <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">
                             Education & Certifications
                         </h2>
-                        <div className="space-y-4">
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {/* Education */}
                             <div>
-                                <h4 className="text-md font-bold text-gray-900 dark:text-white">
-                                    Software Engineering Degree
+                                <h4 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">
+                                    Education
                                 </h4>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 italic">
-                                    FST Errachidia, Morocco
-                                </p>
+                                <div className="space-y-4">
+                                    <div>
+                                        <h4 className="text-md font-bold text-gray-900 dark:text-white">
+                                            Software Engineering Degree
+                                        </h4>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400 italic">
+                                            FST Errachidia, Morocco
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Certifications List */}
+                            <div>
+                                <h4 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">
+                                    Professional Training
+                                </h4>
+                                <div className="space-y-4">
+                                    {certifications.slice(0, 6).map((cert) => (
+                                        <div key={cert.id}>
+                                            <h4 className="text-sm font-bold text-gray-900 dark:text-white">
+                                                {cert.title}
+                                            </h4>
+                                            <p className="text-[10px] text-gray-500 dark:text-gray-400">
+                                                {cert.provider} • {cert.issued}
+                                            </p>
+                                            <p className="text-[10px] font-mono text-blue-500/70">
+                                                ID: {cert.credentialId}
+                                            </p>
+                                        </div>
+                                    ))}
+                                    {certifications.length > 6 && (
+                                        <p className="text-[10px] italic text-gray-400">
+                                            + {certifications.length - 6} more certifications available on digital portfolio
+                                        </p>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </section>
