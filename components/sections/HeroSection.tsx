@@ -47,7 +47,7 @@ export function HeroSection() {
     return (
         <section
             id="home"
-            className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-12 px-4 lg:pt-0 lg:pb-0"
+            className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-12 lg:pt-0 lg:pb-0"
         >
             {/* ---- Animated background orbs ---- */}
             <div className="absolute inset-0 -z-10">
@@ -70,16 +70,16 @@ export function HeroSection() {
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
             </div>
 
-            <div className="container mx-auto px-4 sm:px-6 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10 w-full max-w-7xl">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
                     {/* ---- Text Content (Left) ---- */}
-                    <div className="text-center lg:text-left order-2 lg:order-1">
+                    <div className="text-center lg:text-left order-2 lg:order-1 w-full">
                         {/* Status badge */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/10 px-4 py-1.5 text-sm text-green-600 dark:text-green-400 mb-6"
+                            className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/10 px-3 py-1.5 text-xs sm:text-sm text-green-600 dark:text-green-400 mb-4 sm:mb-6"
                         >
                             <span className="relative flex h-2 w-2">
                                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
@@ -93,10 +93,10 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-7xl mb-4 sm:mb-6"
+                            className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-7xl mb-4 sm:mb-6 leading-tight"
                         >
                             Hi, I&apos;m{" "}
-                            <span className="bg-gradient-to-r from-blue-600 via-violet-500 to-purple-600 bg-clip-text text-transparent block lg:inline">
+                            <span className="bg-gradient-to-r from-blue-600 via-violet-500 to-purple-600 bg-clip-text text-transparent block sm:inline lg:inline">
                                 {heroData.name}
                             </span>
                         </motion.h1>
@@ -155,7 +155,7 @@ export function HeroSection() {
                         {/* Decorative background elements */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-full blur-[100px] -z-10 animate-pulse" />
 
-                        <div className="relative w-full aspect-square max-w-[280px] sm:max-w-[350px] lg:max-w-[500px]">
+                        <div className="relative w-full aspect-square max-w-[260px] sm:max-w-[320px] lg:max-w-[500px]">
                             {/* Abstract shape container */}
                             <svg className="absolute inset-0 w-full h-full text-blue-100 dark:text-blue-900/20 -z-10" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                                 <path fill="currentColor" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-5.3C93.5,8.6,82.2,21.5,70.6,32.2C59,42.9,47.1,51.4,34.8,59.3C22.5,67.2,9.8,74.5,-2.9,79.5C-15.6,84.5,-28.3,87.2,-39.8,82.7C-51.3,78.2,-61.6,66.5,-70.7,53.7C-79.8,40.9,-87.7,27,-88.9,12.7C-90.1,-1.5,-84.6,-16.1,-75.4,-28.4C-66.2,-40.7,-53.3,-50.7,-40.4,-58.3C-27.5,-65.9,-14.6,-71.1,0.2,-71.5C15,-71.8,30.5,-76.4,44.7,-76.4Z" transform="translate(100 100) scale(1.1)" />

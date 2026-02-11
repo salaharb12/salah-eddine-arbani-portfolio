@@ -19,9 +19,9 @@ export function SectionWrapper({ id, children, className }: SectionWrapperProps)
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className={cn("px-6 py-24", className)}
+            className={cn("px-4 py-16 sm:px-6 sm:py-24 overflow-hidden", className)}
         >
-            <div className="mx-auto max-w-7xl">{children}</div>
+            <div className="mx-auto max-w-7xl w-full">{children}</div>
         </motion.section>
     );
 }
@@ -35,12 +35,12 @@ export function SectionHeading({
     subtitle: string;
 }) {
     return (
-        <div className="mb-16 text-center">
+        <div className="mb-12 sm:mb-16 text-center">
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl lg:text-5xl"
+                className="text-2xl font-bold text-gray-900 dark:text-white sm:text-4xl lg:text-5xl"
             >
                 {title}
             </motion.h2>
@@ -49,7 +49,7 @@ export function SectionHeading({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="mt-4 text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto"
+                className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto px-2"
             >
                 {subtitle}
             </motion.p>

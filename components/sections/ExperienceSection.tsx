@@ -170,11 +170,11 @@ export function ExperienceSection() {
             />
 
             {/* Timeline */}
-            <div className="relative">
+            <div className="relative w-full overflow-hidden">
                 {/* Vertical timeline line */}
-                <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-violet-500/50 to-transparent md:left-1/2 md:-translate-x-px" />
+                <div className="absolute left-2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-violet-500/50 to-transparent md:left-1/2 md:-translate-x-px" />
 
-                <div className="space-y-12">
+                <div className="space-y-8 sm:space-y-12">
                     {experiences.map((exp, idx) => (
                         <ExperienceCard
                             key={exp.id}
@@ -216,14 +216,14 @@ function ExperienceCard({
             viewport={{ once: true, margin: "-60px" }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
             className={cn(
-                "relative flex flex-col md:flex-row items-start gap-8",
+                "relative flex flex-col md:flex-row items-start gap-6 sm:gap-8",
                 isLeft ? "md:flex-row" : "md:flex-row-reverse"
             )}
         >
             {/* Timeline dot */}
             <div
                 className={cn(
-                    "absolute left-3 md:left-1/2 z-10 flex h-6 w-6 sm:h-8 sm:w-8 -translate-x-1/2 items-center justify-center rounded-full border-2 sm:border-4 transition-all",
+                    "absolute left-2 md:left-1/2 z-10 flex h-6 w-6 sm:h-8 sm:w-8 -translate-x-1/2 items-center justify-center rounded-full border-2 sm:border-4 transition-all",
                     isHighlighted
                         ? "border-amber-400 bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-amber-500/30"
                         : "border-white dark:border-gray-950 bg-gradient-to-br from-blue-500 to-violet-500 shadow-lg shadow-blue-500/20"
@@ -243,7 +243,7 @@ function ExperienceCard({
             <motion.div
                 whileHover={{ y: -4 }}
                 className={cn(
-                    "group relative ml-8 sm:ml-10 md:ml-0 w-full md:w-1/2 rounded-2xl sm:rounded-3xl border backdrop-blur-md p-4 sm:p-6 transition-all hover:shadow-2xl overflow-hidden",
+                    "group relative ml-6 sm:ml-8 md:ml-0 w-full md:w-1/2 rounded-2xl sm:rounded-3xl border backdrop-blur-md p-4 sm:p-6 transition-all hover:shadow-2xl overflow-hidden",
                     isHighlighted
                         ? "border-amber-500/30 bg-gradient-to-br from-amber-500/5 to-orange-500/5 dark:from-amber-500/10 dark:to-orange-500/10 hover:shadow-amber-500/10"
                         : "border-white/10 bg-white/60 dark:bg-white/5 hover:shadow-blue-500/10"
@@ -256,7 +256,7 @@ function ExperienceCard({
 
                 {/* Header row */}
                 <div className="flex flex-wrap items-start justify-between gap-2 mb-3 sm:mb-4">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
                         {/* Company logo placeholder */}
                         <div
                             className={cn(
@@ -271,8 +271,8 @@ function ExperienceCard({
                                 .slice(0, 2)
                                 .toUpperCase()}
                         </div>
-                        <div>
-                            <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">
+                        <div className="min-w-0 flex-1">
+                            <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white truncate">
                                 {experience.company}
                             </h3>
                             <p className="text-sm font-medium text-blue-500 dark:text-blue-400">
@@ -284,7 +284,7 @@ function ExperienceCard({
                     {/* Employment type badge */}
                     <span
                         className={cn(
-                            "inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-semibold",
+                            "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[10px] sm:text-xs font-semibold shrink-0",
                             typeBadgeStyles[experience.type]
                         )}
                     >
