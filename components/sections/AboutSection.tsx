@@ -34,7 +34,7 @@ export function AboutSection() {
                     className="relative mx-auto lg:mx-0"
                 >
                     {/* 3D-style avatar placeholder */}
-                    <div className="relative h-80 w-80 rounded-3xl overflow-hidden group">
+                    <div className="relative h-64 w-64 sm:h-72 sm:w-72 md:h-80 md:w-80 rounded-3xl overflow-hidden group">
                         {/* Gradient background/border effect */}
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-violet-500 to-purple-600 opacity-20 group-hover:opacity-30 transition-opacity" />
 
@@ -99,25 +99,25 @@ export function AboutSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3, duration: 0.5 }}
-                        className="mt-8 flex flex-wrap gap-4"
+                        className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
                     >
                         <Link
                             href="/resume"
-                            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all hover:shadow-xl hover:shadow-blue-500/30 hover:scale-[1.02]"
+                            className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all hover:shadow-xl hover:shadow-blue-500/30 hover:scale-[1.02]"
                         >
                             <FileText className="h-4 w-4 transition-transform group-hover:rotate-12" />
                             View Resume
                         </Link>
                         <a
                             href="#contact"
-                            className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-white/10 bg-white/50 dark:bg-white/5 px-6 py-3 text-sm font-semibold text-gray-900 dark:text-white backdrop-blur-md transition-all hover:bg-white dark:hover:bg-white/10 hover:scale-[1.02]"
+                            className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-200 dark:border-white/10 bg-white/50 dark:bg-white/5 px-6 py-3 text-sm font-semibold text-gray-900 dark:text-white backdrop-blur-md transition-all hover:bg-white dark:hover:bg-white/10 hover:scale-[1.02]"
                         >
                             Hire Me
                         </a>
                     </motion.div>
 
                     {/* Highlight cards */}
-                    <div className="mt-8 grid grid-cols-2 gap-4">
+                    <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4">
                         {aboutData.highlights.map((item, idx) => (
                             <motion.div
                                 key={item.label}

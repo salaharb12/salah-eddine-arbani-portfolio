@@ -15,8 +15,8 @@ export function Footer() {
             {/* Gradient accent line */}
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-            <div className="mx-auto max-w-7xl px-6 py-12">
-                <div className="grid gap-8 md:grid-cols-3">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
+                <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
                     {/* Brand */}
                     <div>
                         <Logo />
@@ -70,7 +70,7 @@ export function Footer() {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="mt-10 flex flex-col items-center gap-2 border-t border-white/5 pt-8 text-center">
+                <div className="mt-8 sm:mt-10 flex flex-col items-center gap-2 border-t border-white/5 pt-6 sm:pt-8 text-center">
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                         © {currentYear} Salah Eddine Arbani. All rights reserved.
                     </p>

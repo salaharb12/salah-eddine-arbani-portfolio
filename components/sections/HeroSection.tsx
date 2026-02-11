@@ -47,7 +47,7 @@ export function HeroSection() {
     return (
         <section
             id="home"
-            className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-0"
+            className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-12 px-4 lg:pt-0 lg:pb-0"
         >
             {/* ---- Animated background orbs ---- */}
             <div className="absolute inset-0 -z-10">
@@ -70,7 +70,7 @@ export function HeroSection() {
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
             </div>
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                     {/* ---- Text Content (Left) ---- */}
                     <div className="text-center lg:text-left order-2 lg:order-1">
@@ -93,7 +93,7 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl lg:text-7xl mb-6"
+                            className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-7xl mb-4 sm:mb-6"
                         >
                             Hi, I&apos;m{" "}
                             <span className="bg-gradient-to-r from-blue-600 via-violet-500 to-purple-600 bg-clip-text text-transparent block lg:inline">
@@ -106,7 +106,7 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="h-8 text-lg font-medium text-gray-600 dark:text-gray-300 sm:text-xl lg:text-2xl mb-8"
+                            className="h-6 sm:h-8 text-base font-medium text-gray-600 dark:text-gray-300 sm:text-xl lg:text-2xl mb-6 sm:mb-8"
                         >
                             <span>{typedTitle}</span>
                             <span className="animate-pulse text-blue-500">|</span>
@@ -117,7 +117,7 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
-                            className="mx-auto lg:mx-0 max-w-2xl text-base text-gray-500 dark:text-gray-400 leading-relaxed sm:text-lg mb-10"
+                            className="mx-auto lg:mx-0 max-w-2xl text-sm text-gray-500 dark:text-gray-400 leading-relaxed sm:text-base lg:text-lg mb-6 sm:mb-10"
                         >
                             {heroData.mission}
                         </motion.p>
@@ -127,18 +127,18 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                            className="flex flex-col items-center gap-4 sm:flex-row justify-center lg:justify-start"
+                            className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center justify-center lg:justify-start w-full sm:w-auto"
                         >
                             <a
                                 href="#projects"
-                                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:shadow-xl hover:shadow-blue-500/30 hover:scale-105"
+                                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-6 py-3 sm:px-8 sm:py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:shadow-xl hover:shadow-blue-500/30 hover:scale-105"
                             >
                                 View My Work
                                 <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                             </a>
                             <a
                                 href="#contact"
-                                className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-white/10 bg-white/50 dark:bg-white/5 px-8 py-3.5 text-sm font-semibold text-gray-900 dark:text-white backdrop-blur-md transition-all hover:bg-white dark:hover:bg-white/10 hover:scale-105"
+                                className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-200 dark:border-white/10 bg-white/50 dark:bg-white/5 px-6 py-3 sm:px-8 sm:py-3.5 text-sm font-semibold text-gray-900 dark:text-white backdrop-blur-md transition-all hover:bg-white dark:hover:bg-white/10 hover:scale-105"
                             >
                                 Get In Touch
                             </a>
@@ -155,7 +155,7 @@ export function HeroSection() {
                         {/* Decorative background elements */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-full blur-[100px] -z-10 animate-pulse" />
 
-                        <div className="relative w-full aspect-square max-w-[400px] lg:max-w-[500px]">
+                        <div className="relative w-full aspect-square max-w-[280px] sm:max-w-[350px] lg:max-w-[500px]">
                             {/* Abstract shape container */}
                             <svg className="absolute inset-0 w-full h-full text-blue-100 dark:text-blue-900/20 -z-10" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                                 <path fill="currentColor" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-5.3C93.5,8.6,82.2,21.5,70.6,32.2C59,42.9,47.1,51.4,34.8,59.3C22.5,67.2,9.8,74.5,-2.9,79.5C-15.6,84.5,-28.3,87.2,-39.8,82.7C-51.3,78.2,-61.6,66.5,-70.7,53.7C-79.8,40.9,-87.7,27,-88.9,12.7C-90.1,-1.5,-84.6,-16.1,-75.4,-28.4C-66.2,-40.7,-53.3,-50.7,-40.4,-58.3C-27.5,-65.9,-14.6,-71.1,0.2,-71.5C15,-71.8,30.5,-76.4,44.7,-76.4Z" transform="translate(100 100) scale(1.1)" />

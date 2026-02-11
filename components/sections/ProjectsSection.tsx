@@ -28,7 +28,7 @@ export function ProjectsSection() {
             />
 
             {/* Filter tabs */}
-            <div className="mb-12 flex flex-wrap justify-center gap-2">
+            <div className="mb-8 sm:mb-12 flex flex-wrap justify-center gap-2">
                 {categories.map((cat) => (
                     <motion.button
                         key={cat}
@@ -36,7 +36,7 @@ export function ProjectsSection() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className={cn(
-                            "rounded-full px-5 py-2 text-sm font-medium transition-all",
+                            "rounded-full px-4 py-2 sm:px-5 sm:py-2 text-xs sm:text-sm font-medium transition-all",
                             activeFilter === cat
                                 ? "bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg shadow-blue-500/20"
                                 : "border border-white/10 bg-white/50 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-white/10"
@@ -55,7 +55,7 @@ export function ProjectsSection() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+                    className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3"
                 >
                     {filtered.map((project, idx) => (
                         <ProjectCard

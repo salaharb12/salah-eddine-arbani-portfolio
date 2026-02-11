@@ -182,7 +182,7 @@ export function SkillsSection() {
             />
 
             {/* Category tabs */}
-            <div className="mb-12 flex flex-wrap justify-center gap-2">
+            <div className="mb-8 sm:mb-12 flex flex-wrap justify-center gap-2">
                 {skillCategories.map((cat, idx) => (
                     <motion.button
                         key={cat.title}
@@ -190,7 +190,7 @@ export function SkillsSection() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className={cn(
-                            "flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all",
+                            "flex items-center gap-2 rounded-full px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-medium transition-all",
                             activeCategory === idx
                                 ? "bg-gradient-to-r text-white shadow-lg shadow-blue-500/20 " + cat.color
                                 : "border border-white/10 bg-white/50 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-white/80 dark:hover:bg-white/10"
@@ -210,7 +210,7 @@ export function SkillsSection() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4"
+                    className="grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-3 md:grid-cols-4"
                 >
                     {skillCategories[activeCategory].skills.map((skill, idx) => (
                         <SkillCard
@@ -241,7 +241,7 @@ function SkillCard({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05, duration: 0.3 }}
             whileHover={{ scale: 1.05, y: -4 }}
-            className="group relative rounded-2xl border border-white/10 bg-white/60 dark:bg-white/5 p-5 backdrop-blur-md transition-all hover:shadow-xl hover:shadow-blue-500/5 cursor-pointer overflow-hidden"
+            className="group relative rounded-2xl border border-white/10 bg-white/60 dark:bg-white/5 p-4 sm:p-5 backdrop-blur-md transition-all hover:shadow-xl hover:shadow-blue-500/5 cursor-pointer overflow-hidden"
         >
             {/* Hover gradient glow */}
             <div

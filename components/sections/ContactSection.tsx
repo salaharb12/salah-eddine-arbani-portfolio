@@ -29,7 +29,7 @@ export function ContactSection() {
                 subtitle="Have a project in mind? Let's build something amazing together."
             />
 
-            <div className="grid gap-12 lg:grid-cols-2">
+            <div className="grid gap-8 sm:gap-12 lg:grid-cols-2">
                 {/* Contact info */}
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
@@ -39,7 +39,7 @@ export function ContactSection() {
                     className="space-y-8"
                 >
                     {/* Info cards */}
-                    <div className="space-y-4">
+                    <div className="space-y-3 sm:space-y-4">
                         {[
                             {
                                 icon: <Mail className="h-5 w-5" />,

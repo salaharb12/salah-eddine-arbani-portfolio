@@ -19,7 +19,7 @@ export function CertificationsSection() {
                 subtitle="Industry-leading credentials documenting expertise in Cloud, Mobile, and Web technologies."
             />
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {certifications.map((cert, idx) => (
                     <motion.div
                         key={cert.id}
@@ -29,10 +29,10 @@ export function CertificationsSection() {
                         transition={{ delay: idx * 0.05, duration: 0.5 }}
                         whileHover={{ y: -5 }}
                         onClick={() => setSelectedCert(cert)}
-                        className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/50 dark:bg-white/5 p-6 backdrop-blur-md transition-all hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 cursor-pointer"
+                        className="group relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-white/50 dark:bg-white/5 p-4 sm:p-6 backdrop-blur-md transition-all hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 cursor-pointer"
                     >
                         {/* Category Badge */}
-                        <div className="absolute top-6 right-6 flex items-center gap-1.5 rounded-full bg-blue-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-500">
+                        <div className="absolute top-4 right-4 sm:top-6 sm:right-6 flex items-center gap-1.5 rounded-full bg-blue-500/10 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] font-bold uppercase tracking-wider text-blue-500">
                             <span className="relative flex h-1.5 w-1.5">
                                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
                                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-blue-500"></span>
@@ -41,21 +41,21 @@ export function CertificationsSection() {
                         </div>
 
                         {/* Icon/Award Placeholder */}
-                        <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 text-blue-500 group-hover:from-blue-500 group-hover:to-violet-500 group-hover:text-white transition-all duration-500">
-                            <Award className="h-6 w-6" />
+                        <div className="mb-4 sm:mb-6 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 text-blue-500 group-hover:from-blue-500 group-hover:to-violet-500 group-hover:text-white transition-all duration-500">
+                            <Award className="h-5 w-5 sm:h-6 sm:w-6" />
                         </div>
 
                         {/* Content */}
                         <div className="flex-grow">
-                            <h3 className="mb-2 text-lg font-bold leading-tight text-gray-900 dark:text-white group-hover:text-blue-500 transition-colors">
+                            <h3 className="mb-2 text-base sm:text-lg font-bold leading-tight text-gray-900 dark:text-white group-hover:text-blue-500 transition-colors">
                                 {cert.title}
                             </h3>
-                            <p className="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">
+                            <p className="mb-3 sm:mb-4 text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
                                 {cert.provider}
                             </p>
 
                             {/* Skills Tags */}
-                            <div className="mb-6 flex flex-wrap gap-2">
+                            <div className="mb-4 sm:mb-6 flex flex-wrap gap-1.5 sm:gap-2">
                                 {cert.skills.map((skill) => (
                                     <span
                                         key={skill}
@@ -68,7 +68,7 @@ export function CertificationsSection() {
                         </div>
 
                         {/* Metadata Footer */}
-                        <div className="mt-auto flex items-center justify-between border-t border-gray-100 dark:border-white/5 pt-4 text-xs">
+                        <div className="mt-auto flex items-center justify-between border-t border-gray-100 dark:border-white/5 pt-3 sm:pt-4 text-xs">
                             <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
                                 <Calendar className="h-3.5 w-3.5" />
                                 {cert.issued}
@@ -93,9 +93,9 @@ export function CertificationsSection() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="mt-12 rounded-2xl border border-dashed border-blue-500/20 bg-blue-500/5 p-6 text-center"
+                className="mt-8 sm:mt-12 rounded-2xl border border-dashed border-blue-500/20 bg-blue-500/5 p-4 sm:p-6 text-center"
             >
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                     <span className="font-bold text-blue-500 italic">Pro Tip:</span> All certifications are verified via Coursera and official provider networks.
                     Links to original certificates are available upon request.
                 </p>

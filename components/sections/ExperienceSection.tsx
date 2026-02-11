@@ -172,7 +172,7 @@ export function ExperienceSection() {
             {/* Timeline */}
             <div className="relative">
                 {/* Vertical timeline line */}
-                <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-violet-500/50 to-transparent md:left-1/2 md:-translate-x-px" />
+                <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-violet-500/50 to-transparent md:left-1/2 md:-translate-x-px" />
 
                 <div className="space-y-12">
                     {experiences.map((exp, idx) => (
@@ -223,16 +223,16 @@ function ExperienceCard({
             {/* Timeline dot */}
             <div
                 className={cn(
-                    "absolute left-4 md:left-1/2 z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border-4 transition-all",
+                    "absolute left-3 md:left-1/2 z-10 flex h-6 w-6 sm:h-8 sm:w-8 -translate-x-1/2 items-center justify-center rounded-full border-2 sm:border-4 transition-all",
                     isHighlighted
                         ? "border-amber-400 bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-amber-500/30"
                         : "border-white dark:border-gray-950 bg-gradient-to-br from-blue-500 to-violet-500 shadow-lg shadow-blue-500/20"
                 )}
             >
                 {isHighlighted ? (
-                    <Star className="h-3.5 w-3.5 text-white fill-white" />
+                    <Star className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 text-white fill-white" />
                 ) : (
-                    <Briefcase className="h-3.5 w-3.5 text-white" />
+                    <Briefcase className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 text-white" />
                 )}
             </div>
 
@@ -243,7 +243,7 @@ function ExperienceCard({
             <motion.div
                 whileHover={{ y: -4 }}
                 className={cn(
-                    "group relative ml-12 md:ml-0 w-full md:w-1/2 rounded-3xl border backdrop-blur-md p-6 transition-all hover:shadow-2xl overflow-hidden",
+                    "group relative ml-8 sm:ml-10 md:ml-0 w-full md:w-1/2 rounded-2xl sm:rounded-3xl border backdrop-blur-md p-4 sm:p-6 transition-all hover:shadow-2xl overflow-hidden",
                     isHighlighted
                         ? "border-amber-500/30 bg-gradient-to-br from-amber-500/5 to-orange-500/5 dark:from-amber-500/10 dark:to-orange-500/10 hover:shadow-amber-500/10"
                         : "border-white/10 bg-white/60 dark:bg-white/5 hover:shadow-blue-500/10"
@@ -255,12 +255,12 @@ function ExperienceCard({
                 )}
 
                 {/* Header row */}
-                <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
+                <div className="flex flex-wrap items-start justify-between gap-2 mb-3 sm:mb-4">
                     <div className="flex items-center gap-3">
                         {/* Company logo placeholder */}
                         <div
                             className={cn(
-                                "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white font-bold text-sm shadow-md",
+                                "flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white font-bold text-xs sm:text-sm shadow-md",
                                 experience.gradient
                             )}
                         >
@@ -272,7 +272,7 @@ function ExperienceCard({
                                 .toUpperCase()}
                         </div>
                         <div>
-                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                            <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">
                                 {experience.company}
                             </h3>
                             <p className="text-sm font-medium text-blue-500 dark:text-blue-400">
@@ -296,7 +296,7 @@ function ExperienceCard({
                 </div>
 
                 {/* Meta row */}
-                <div className="flex flex-wrap gap-x-4 gap-y-1 mb-4 text-xs text-gray-500 dark:text-gray-400">
+                <div className="flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-1 mb-3 sm:mb-4 text-xs text-gray-500 dark:text-gray-400">
                     <span className="inline-flex items-center gap-1">
                         <Calendar className="h-3.5 w-3.5" />
                         {experience.startDate} – {experience.endDate}
@@ -308,14 +308,14 @@ function ExperienceCard({
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3 sm:mb-4">
                     {experience.description}
                 </p>
 
                 {/* Impact */}
                 <div
                     className={cn(
-                        "flex items-start gap-2 rounded-xl p-3 mb-4 text-sm",
+                        "flex items-start gap-2 rounded-xl p-2.5 sm:p-3 mb-3 sm:mb-4 text-xs sm:text-sm",
                         isHighlighted
                             ? "bg-amber-500/10 dark:bg-amber-500/5"
                             : "bg-blue-500/5 dark:bg-blue-500/5"
@@ -346,10 +346,10 @@ function ExperienceCard({
                     {experience.techStack.map((tech) => (
                         <span
                             key={tech}
-                            className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 dark:bg-white/10 px-2.5 py-1 text-xs font-medium text-gray-600 dark:text-gray-300 transition-colors hover:bg-gray-200 dark:hover:bg-white/20"
+                            className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-gray-100 dark:bg-white/10 px-2 sm:px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium text-gray-600 dark:text-gray-300 transition-colors hover:bg-gray-200 dark:hover:bg-white/20"
                         >
                             {/* Try to map tech name to icon URL/Key if possible, otherwise just text */}
-                            <TechIcon name={tech.replace(/\s+/g, '')} className="h-3 w-3" />
+                            <TechIcon name={tech.replace(/\s+/g, '')} className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
                             {tech}
                         </span>
                     ))}
