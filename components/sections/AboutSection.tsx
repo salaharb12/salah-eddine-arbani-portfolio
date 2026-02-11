@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { User, Briefcase, Code, Users } from "lucide-react";
+import { User, Briefcase, Code, Users, FileText } from "lucide-react";
 import { SectionWrapper, SectionHeading } from "../SectionWrapper";
 import { aboutData } from "@/lib/data";
 
@@ -91,6 +91,31 @@ export function AboutSection() {
                             </p>
                         ))}
                     </div>
+
+                    {/* Resume Download CTA */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                        className="mt-8 flex flex-wrap gap-4"
+                    >
+                        <a
+                            href="/resume.pdf" // Placeholder, user will replace with actual file
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all hover:shadow-xl hover:shadow-blue-500/30 hover:scale-[1.02]"
+                        >
+                            <FileText className="h-4 w-4 transition-transform group-hover:rotate-12" />
+                            Download Resume
+                        </a>
+                        <a
+                            href="#contact"
+                            className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-white/10 bg-white/50 dark:bg-white/5 px-6 py-3 text-sm font-semibold text-gray-900 dark:text-white backdrop-blur-md transition-all hover:bg-white dark:hover:bg-white/10 hover:scale-[1.02]"
+                        >
+                            Hire Me
+                        </a>
+                    </motion.div>
 
                     {/* Highlight cards */}
                     <div className="mt-8 grid grid-cols-2 gap-4">

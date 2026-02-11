@@ -12,7 +12,7 @@ export function Logo({ className }: { className?: string }) {
             whileTap={{ scale: 0.95 }}
             className={cn("flex items-center justify-center font-bold", className)}
         >
-            <div className="relative h-20 w-70">
+            <div className="relative h-20 w-72">
                 <Image
                     src="/logoSalah-2.png"
                     alt="Salah Logo"
