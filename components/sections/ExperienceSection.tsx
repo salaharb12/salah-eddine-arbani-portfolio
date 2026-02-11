@@ -243,7 +243,7 @@ function ExperienceCard({
             <motion.div
                 whileHover={{ y: -4 }}
                 className={cn(
-                    "group relative ml-6 sm:ml-8 md:ml-0 w-full md:w-1/2 rounded-2xl sm:rounded-3xl border backdrop-blur-md p-4 sm:p-6 transition-all hover:shadow-2xl overflow-hidden",
+                    "group relative ml-6 sm:ml-8 md:ml-0 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] md:w-1/2 rounded-2xl sm:rounded-3xl border backdrop-blur-md p-4 sm:p-6 transition-all hover:shadow-2xl overflow-hidden",
                     isHighlighted
                         ? "border-amber-500/30 bg-gradient-to-br from-amber-500/5 to-orange-500/5 dark:from-amber-500/10 dark:to-orange-500/10 hover:shadow-amber-500/10"
                         : "border-white/10 bg-white/60 dark:bg-white/5 hover:shadow-blue-500/10"
@@ -256,7 +256,7 @@ function ExperienceCard({
 
                 {/* Header row */}
                 <div className="flex flex-wrap items-start justify-between gap-2 mb-3 sm:mb-4">
-                    <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 max-w-full">
                         {/* Company logo placeholder */}
                         <div
                             className={cn(
@@ -296,7 +296,7 @@ function ExperienceCard({
                 </div>
 
                 {/* Meta row */}
-                <div className="flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-1 mb-3 sm:mb-4 text-xs text-gray-500 dark:text-gray-400">
+                <div className="flex flex-wrap gap-x-2 sm:gap-x-3 gap-y-1 mb-3 sm:mb-4 text-xs text-gray-500 dark:text-gray-400">
                     <span className="inline-flex items-center gap-1">
                         <Calendar className="h-3.5 w-3.5" />
                         {experience.startDate} – {experience.endDate}
@@ -342,7 +342,7 @@ function ExperienceCard({
                 </div>
 
                 {/* Tech stack badges */}
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1 sm:gap-1.5">
                     {experience.techStack.map((tech) => (
                         <span
                             key={tech}
