@@ -16,7 +16,7 @@ export function Globe({ className }: { className?: string }) {
     });
 
     useEffect(() => {
-        let phi = 0;
+        let phi = 4.9; // Start facing roughly towards Morocco
         let width = 0;
         const onResize = () => canvasRef.current && (width = canvasRef.current.offsetWidth);
         window.addEventListener("resize", onResize);
@@ -35,14 +35,19 @@ export function Globe({ className }: { className?: string }) {
             mapSamples: 16000,
             mapBrightness: 6,
             baseColor: [0.3, 0.3, 0.3],
-            markerColor: [0.1, 0.8, 1],
+            // Blue color for the marker
+            markerColor: [0, 0.5, 1],
             glowColor: [1, 1, 1],
             markers: [
-                { location: [40.7128, -74.0060], size: 0.1 },
+                // Morocco coordinates
+                { location: [31.7917, -7.0926], size: 0.1 },
             ],
             onRender: (state) => {
+                // Called on every animation frame.
+                // state will be an empty object, return updated params.
                 if (!pointerInteracting.current) {
-                    phi += 0.005;
+                    // Slow rotation
+                    phi += 0.003;
                 }
                 state.phi = phi + r.get();
                 state.width = width * 2;
