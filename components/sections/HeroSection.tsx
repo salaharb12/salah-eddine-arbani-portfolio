@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowDown, ExternalLink } from "lucide-react";
 import { heroData } from "@/lib/data";
 import { useEffect, useState } from "react";
+import { ParticleNetwork } from "@/components/ParticleNetwork";
 
 /** Typing effect hook */
 function useTypingEffect(texts: string[], typingSpeed = 80, deletingSpeed = 40, pauseTime = 2000) {
@@ -51,20 +52,11 @@ export function HeroSection() {
         >
             {/* ---- Animated background orbs ---- */}
             <div className="absolute inset-0 -z-10">
-                {/* Main gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50/50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950/30" />
+                {/* Interactive Particles */}
+                <ParticleNetwork />
 
-                {/* Floating orbs */}
-                <motion.div
-                    className="absolute top-1/4 left-1/4 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl opacity-50"
-                    animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div
-                    className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl opacity-50"
-                    animate={{ x: [0, -40, 0], y: [0, 40, 0] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                />
+                {/* Main gradient (lighter to let particles show through) */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 via-white/80 to-blue-50/50 dark:from-gray-950/80 dark:via-gray-900/80 dark:to-blue-950/30" />
 
                 {/* Grid pattern overlay */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
