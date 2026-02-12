@@ -62,10 +62,10 @@ export function ProjectDetailsModal({ project, onClose }: ProjectDetailsModalPro
                         exit={isMobile ? { y: "100%" } : { opacity: 0, scale: 0.95, y: 20 }}
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
                         className={cn(
-                            "fixed z-50 w-full bg-white dark:bg-gray-900 shadow-2xl ring-1 ring-white/10 flex flex-col overflow-hidden",
+                            "fixed z-50 bg-white dark:bg-gray-900 shadow-2xl ring-1 ring-white/10 flex flex-col overflow-hidden",
                             isMobile
-                                ? "bottom-0 left-0 right-0 rounded-t-[2rem] rounded-b-none h-[85vh]"
-                                : "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-3xl rounded-3xl max-h-[85vh] p-1"
+                                ? "bottom-0 left-0 right-0 w-full rounded-t-[2rem] rounded-b-none h-[85vh]"
+                                : "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(calc(100%-4rem),48rem)] rounded-3xl max-h-[85vh] p-1"
                         )}
                     >
                         {isMobile && (

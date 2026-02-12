@@ -15,7 +15,7 @@ export function Footer() {
             {/* Gradient accent line */}
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
+            <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-8 sm:py-12">
                 <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
                     {/* Brand */}
                     <div>

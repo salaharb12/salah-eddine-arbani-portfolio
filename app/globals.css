@@ -42,9 +42,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Prevent horizontal overflow on all elements */
-* {
+/* Prevent content from causing horizontal overflow (targeted, not modals) */
+img,
+video,
+svg,
+canvas {
   max-width: 100%;
+  height: auto;
 }
 
 /* Selection color */

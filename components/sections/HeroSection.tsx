@@ -70,7 +70,7 @@ export function HeroSection() {
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
             </div>
 
-            <div className="container mx-auto px-4 sm:px-6 relative z-10 w-full max-w-7xl">
+            <div className="container mx-auto px-5 sm:px-8 lg:px-12 relative z-10 w-full max-w-7xl">
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
                     {/* ---- Text Content (Left) ---- */}
                     <div className="text-center lg:text-left order-2 lg:order-1 w-full">

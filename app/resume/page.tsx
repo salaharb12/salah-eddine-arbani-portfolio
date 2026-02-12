@@ -33,7 +33,7 @@ export default function ResumePage() {
     };
 
     return (
-        <main className="min-h-screen bg-gray-50 dark:bg-gray-950 py-12 px-6 print:bg-white print:py-0 print:px-0">
+        <main className="min-h-screen bg-gray-50 dark:bg-gray-950 py-12 px-5 sm:px-8 lg:px-12 print:bg-white print:py-0 print:px-0">
             {/* Navigation / Actions (Hidden on Print) */}
             <div className="mx-auto max-w-4xl mb-8 flex items-center justify-between print:hidden">
                 <Link

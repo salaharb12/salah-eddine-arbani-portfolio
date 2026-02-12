@@ -28,7 +28,7 @@ export function Header() {
                     : "bg-transparent"
             )}
         >
-            <nav className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 lg:px-8 lg:py-4">
+            <nav className="mx-auto w-full max-w-7xl px-5 py-4 sm:px-8 lg:px-12 lg:py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <div className="flex-shrink-0">
