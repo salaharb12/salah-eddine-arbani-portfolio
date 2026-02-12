@@ -76,6 +76,7 @@ import {
 import { SectionWrapper, SectionHeading } from "../SectionWrapper";
 import { skillCategories, type SkillCategory } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { SpotlightCard } from "../ui/SpotlightCard";
 
 // Map icon names to actual components
 const iconComponents: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -236,34 +237,34 @@ function SkillCard({
     index: number;
 }) {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05, duration: 0.3 }}
-            whileHover={{ scale: 1.05, y: -4 }}
-            className="group relative rounded-2xl border border-white/10 bg-white/60 dark:bg-white/5 p-4 sm:p-5 backdrop-blur-md transition-all hover:shadow-xl hover:shadow-blue-500/5 cursor-pointer overflow-hidden"
-        >
-            {/* Hover gradient glow */}
-            <div
-                className={cn(
-                    "absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity bg-gradient-to-br",
-                    category.color
-                )}
-            />
-
-            <div className="relative z-10 flex flex-col items-center gap-3 text-center">
+        <SpotlightCard className="h-full">
+            <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.05, duration: 0.3 }}
+                className="flex flex-col items-center gap-3 p-4 sm:p-5 text-center h-full justify-center group cursor-pointer"
+            >
+                {/* Hover gradient glow */}
                 <div
                     className={cn(
-                        "flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br text-white",
+                        "absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity bg-gradient-to-br",
+                        category.color
+                    )}
+                />
+
+                <div
+                    className={cn(
+                        "relative z-10 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-lg transition-transform group-hover:scale-110 duration-300",
                         category.color
                     )}
                 >
-                    <TechIcon name={skill.icon} className="h-5 w-5" />
+                    <TechIcon name={skill.icon} className="h-6 w-6" />
                 </div>
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
+
+                <span className="relative z-10 text-sm font-medium text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
                     {skill.name}
-                </p>
-            </div>
-        </motion.div>
+                </span>
+            </motion.div>
+        </SpotlightCard>
     );
 }

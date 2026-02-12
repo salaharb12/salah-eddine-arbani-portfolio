@@ -6,6 +6,7 @@ import { Send, CheckCircle, MapPin, Mail, Phone, MessageSquare } from "lucide-re
 import { SectionWrapper, SectionHeading } from "../SectionWrapper";
 import { socialLinks } from "@/lib/data";
 import { SocialIcon } from "../SocialIcon";
+import { Globe } from "../ui/Globe";
 
 /** Contact section with form, info cards, and social links */
 export function ContactSection() {
@@ -47,12 +48,7 @@ export function ContactSection() {
                                 value: "salah.arb09@gmail.com",
                                 href: "mailto:salah.arb09@gmail.com",
                             },
-                            {
-                                icon: <MapPin className="h-5 w-5" />,
-                                label: "Location",
-                                value: "Available Worldwide (Remote)",
-                                href: "#",
-                            },
+                            // Replaced static location with Globe below
                             {
                                 icon: <Phone className="h-5 w-5" />,
                                 label: "Phone",
@@ -104,8 +100,8 @@ export function ContactSection() {
                     </div>
 
                     {/* AI Chatbot placeholder */}
-                    <div className="rounded-2xl border border-dashed border-blue-500/30 bg-blue-500/5 p-6">
-                        <div className="flex items-center gap-3 mb-3">
+                    <div className="rounded-2xl border border-dashed border-blue-500/30 bg-blue-500/5 p-6 relative overflow-hidden group">
+                        <div className="flex items-center gap-3 mb-3 relative z-10">
                             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-violet-500 text-white">
                                 <MessageSquare className="h-5 w-5" />
                             </div>
@@ -118,10 +114,22 @@ export function ContactSection() {
                                 </p>
                             </div>
                         </div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="text-sm text-gray-500 dark:text-gray-400 relative z-10">
                             Coming soon — an AI chatbot that can answer questions about my
                             skills, projects, and availability in real-time.
                         </p>
+                    </div>
+
+                    {/* Interactive Globe */}
+                    <div className="rounded-3xl border border-white/10 bg-white/50 dark:bg-white/5 p-2 backdrop-blur-md overflow-hidden relative min-h-[300px] flex items-center justify-center">
+                        <div className="absolute top-4 left-6 z-10">
+                            <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center gap-2">
+                                <MapPin className="h-4 w-4 text-blue-500" />
+                                Based in Morocco, Working Worldwide
+                            </h3>
+                        </div>
+                        <Globe className="absolute inset-0 top-10 w-full h-full scale-[1.5]" />
+                        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white dark:from-gray-950 to-transparent z-10 pointer-events-none" />
                     </div>
                 </motion.div>
 
