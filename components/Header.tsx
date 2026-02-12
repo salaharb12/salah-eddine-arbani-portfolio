@@ -28,36 +28,40 @@ export function Header() {
                     : "bg-transparent"
             )}
         >
-            <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6 md:py-2">
-                {/* Logo */}
-                <Logo />
+            <nav className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 lg:px-8 lg:py-4">
+                <div className="flex items-center justify-between">
+                    {/* Logo */}
+                    <div className="flex-shrink-0">
+                        <Logo />
+                    </div>
 
-                {/* Desktop Navigation */}
-                <ul className="hidden md:flex items-center gap-1">
-                    {navLinks.map((link) => (
-                        <li key={link.href}>
-                            <a
-                                href={link.href}
-                                className="relative px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 transition-colors hover:text-gray-900 dark:hover:text-white group"
-                            >
-                                {link.label}
-                                <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-violet-500 transition-all duration-300 group-hover:left-2 group-hover:w-[calc(100%-16px)]" />
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+                    {/* Desktop Navigation - Centered */}
+                    <ul className="hidden md:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
+                        {navLinks.map((link) => (
+                            <li key={link.href}>
+                                <a
+                                    href={link.href}
+                                    className="relative px-4 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-300 transition-all duration-200 hover:text-gray-900 dark:hover:text-white group rounded-lg hover:bg-white/50 dark:hover:bg-white/5"
+                                >
+                                    {link.label}
+                                    <span className="absolute bottom-1 left-1/2 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-violet-500 transition-all duration-300 group-hover:left-3 group-hover:w-[calc(100%-24px)] rounded-full" />
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
 
-                {/* Actions */}
-                <div className="flex items-center gap-3">
-                    <ThemeToggle />
-                    {/* Mobile menu button */}
-                    <button
-                        className="flex md:hidden h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-md"
-                        onClick={() => setIsMobileOpen(!isMobileOpen)}
-                        aria-label="Toggle mobile menu"
-                    >
-                        {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                    </button>
+                    {/* Actions */}
+                    <div className="flex items-center gap-3">
+                        <ThemeToggle />
+                        {/* Mobile menu button */}
+                        <button
+                            className="flex md:hidden h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-md transition-colors hover:bg-white/10"
+                            onClick={() => setIsMobileOpen(!isMobileOpen)}
+                            aria-label="Toggle mobile menu"
+                        >
+                            {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                        </button>
+                    </div>
                 </div>
             </nav>
 
